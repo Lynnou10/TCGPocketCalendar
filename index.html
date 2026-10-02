@@ -1,10 +1,14 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><link rel="apple-touch-icon" sizes="180x180" href="./icon.png"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="./icon-180-v2.png"><title>TCG Pocket · Plan 15 jours</title>
+<!doctype html><html lang="fr"><head><link rel="apple-touch-icon" sizes="180x180" href="./icon.png"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="./icon-180-v2.png"><title>TCG Pocket · Plan 15 jours</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#07111f;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:calc(25px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}.top{position:sticky;top:0;z-index:5;background:#07111fee;backdrop-filter:blur(14px);padding:calc(10px + env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid #263a56}.topin,main{max-width:1150px;margin:auto}.topin{display:flex;justify-content:space-between;align-items:center;gap:10px}h1{font-size:20px;margin:0}.sub,.note{color:#9fb0c6;font-size:11px}.count{text-align:right;font-weight:800}.bar{height:5px;background:#1e293b;border-radius:9px;margin-top:5px;overflow:hidden}.fill{height:100%;background:#22c55e;width:0}.tools{display:flex;justify-content:space-between;align-items:center;margin:12px 2px}.reset{background:none;color:#9fb0c6;border:1px solid #263a56;border-radius:9px;padding:7px 9px}.day{background:#0f1b2d;border:1px solid #263a56;border-radius:16px;margin:0 0 14px;overflow:hidden}.day.today{border-color:#60a5fa}.day.complete{border-color:#22c55e}.dh{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-bottom:1px solid #263a56}.date{font-weight:800;text-transform:capitalize}.todaytag{color:#60a5fa;font-size:10px;margin-left:6px}.dp{font-size:12px;color:#9fb0c6;font-weight:800}.complete .dp{color:#22c55e}.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px}.action{background:#132238;border:1px solid #263a56;border-radius:13px;overflow:hidden}.action.share{background:linear-gradient(145deg,#172a46,#132238);border-color:#31547c}.action.trade{background:linear-gradient(145deg,#302044,#1c1830);border-color:#65457f}.action.share .verb{background:#1d4ed844;color:#bfdbfe}.action.trade .verb{background:#9333ea33;color:#e9d5ff}.action.done{border-color:#22c55e;background:#123322}.action.done.share,.action.done.trade{background:#123322}.already{width:calc(100% - 16px);margin:0 8px 8px;border:1px solid #3b4f6a;background:#0b1728;color:#cbd5e1;border-radius:9px;padding:8px 9px;font-size:11px;font-weight:800}.already:active{transform:scale(.99)}.action.done .already{opacity:.45}.act{width:100%;border:0;background:none;color:inherit;text-align:left;padding:8px;display:grid;grid-template-columns:88px 1fr;gap:9px;align-items:center;-webkit-tap-highlight-color:transparent}.pic{width:88px;aspect-ratio:.716;position:relative;overflow:hidden;border-radius:7px;background:#050b13}.pic img{width:100%;height:100%;object-fit:cover;display:block}.check{position:absolute;inset:0;background:#052e1688;display:grid;place-items:center;opacity:0}.done .check{opacity:1}.check b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#22c55e;font-size:26px}.route{font-size:10px;color:#9fb0c6;font-weight:700}.route strong{color:#dbeafe}.verb{display:inline-block;margin-top:5px;padding:3px 6px;border-radius:10px;background:#1d4ed833;color:#bfdbfe;font-size:10px;font-weight:800}.name{font-size:14px;font-weight:800;margin-top:6px;line-height:1.15}.meta,.status{font-size:11px;color:#9fb0c6;margin-top:5px}.dia{color:#fbbf24}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#64748b;margin-right:5px}.done .status{color:#86efac}.done .dot{background:#22c55e}main{padding:0 10px}.modal{position:fixed;inset:0;z-index:30;background:#020617d9;display:none;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top)}.modal.open{display:flex}.sheet{width:min(760px,100%);max-height:88vh;overflow:auto;background:#0f1b2d;border:1px solid #334155;border-radius:20px 20px 0 0;padding:14px 12px calc(18px + env(safe-area-inset-bottom))}.sheethead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;position:sticky;top:-14px;background:#0f1b2df5;padding:14px 0 10px;z-index:2}.sheet h2{font-size:18px;margin:0}.sheetp{font-size:12px;color:#9fb0c6;margin-top:4px}.close{border:1px solid #475569;background:#172337;color:#fff;border-radius:10px;padding:8px 11px;font-weight:800}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.choice{border:1px solid #334155;background:#132238;color:#fff;border-radius:12px;padding:7px;text-align:left}.choice img{width:100%;aspect-ratio:.716;object-fit:cover;border-radius:7px;display:block}.choicename{font-size:12px;font-weight:800;margin-top:6px;line-height:1.15}.choicemeta{font-size:10px;color:#fbbf24;margin-top:4px}.empty{padding:20px 4px;color:#cbd5e1;text-align:center}.foot{text-align:center;color:#9fb0c6;font-size:10px}
-@media(max-width:900px){.actions{grid-template-columns:repeat(2,1fr)}}
+.tabs{max-width:1150px;margin:8px auto 0;padding:0 10px;display:flex;gap:8px}.tab{flex:1;border:1px solid #334155;background:#0f1b2d;color:#9fb0c6;border-radius:11px;padding:9px 10px;font-weight:800;font-size:12px}.tab.active{background:#1d4ed8;color:#fff;border-color:#3b82f6}.appPage{display:none}.appPage.active{display:block}.inventoryPage{max-width:1150px;margin:0 auto;padding:10px}.inventoryIntro{background:#0f1b2d;border:1px solid #263a56;border-radius:14px;padding:12px;margin-bottom:10px}.inventoryIntro h2{font-size:17px;margin:0 0 5px}.inventoryIntro p{font-size:11px;color:#9fb0c6;margin:0;line-height:1.4}.inventoryStats{font-size:12px;font-weight:800;margin-top:8px;color:#dbeafe}.raritySection{margin:14px 0}.rarityTitle{font-size:14px;font-weight:900;margin:0 0 8px;color:#fbbf24}.inventoryGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.ownCard{background:#0f1b2d;border:1px solid #263a56;border-radius:13px;padding:7px;overflow:hidden}.ownCard.available{border-color:#22c55e}.ownCard img{width:100%;aspect-ratio:.716;object-fit:cover;border-radius:8px;display:block;background:#050b13}.ownName{font-size:12px;font-weight:850;line-height:1.15;margin-top:6px}.ownMeta{font-size:10px;color:#fbbf24;margin-top:3px}.ownStatus{font-size:10px;color:#9fb0c6;margin-top:5px;min-height:24px}.accountBtns{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px}.acct{border:1px solid #3b4f6a;background:#0b1728;color:#cbd5e1;border-radius:8px;padding:7px 4px;font-size:9px;font-weight:850}.acct.on{background:#14532d;border-color:#22c55e;color:#dcfce7}.choiceSource{font-size:9px;color:#93c5fd;margin-top:3px;font-weight:800}
+@media(max-width:900px){.actions{grid-template-columns:repeat(2,1fr)}.inventoryGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){
   html,body{height:100%;overflow:hidden}
   .choices{grid-template-columns:repeat(2,1fr)}
+  .tabs{flex:0 0 40px;margin:0;padding:4px 7px 3px;gap:6px}.tab{padding:6px 8px;font-size:11px}
+  .appPage{min-height:0}.calendarPage.active{display:flex;flex:1;min-height:0;flex-direction:column}.inventoryPage.active{display:block;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:7px 7px calc(18px + env(safe-area-inset-bottom))}
+  .inventoryGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.inventoryIntro{padding:10px;margin-bottom:7px}.raritySection{margin:10px 0}.ownCard{padding:6px}.ownName{font-size:11px}.acct{font-size:9px;padding:7px 3px}
   h1{font-size:16px}.sub{display:none}.top{padding-top:calc(7px + env(safe-area-inset-top));padding-bottom:7px}.count{font-size:13px}
   main{height:calc(100svh - 51px - env(safe-area-inset-top));padding:0 7px;display:flex;flex-direction:column;overflow:hidden}
   .tools{flex:0 0 37px;margin:0 2px;display:flex;align-items:center}.reset{padding:5px 7px;font-size:11px}.note{font-size:10px}
@@ -22,16 +26,28 @@
 @media(max-width:360px){.act{grid-template-columns:58px minmax(0,1fr)}.pic{width:58px}.name{font-size:12px}.already{font-size:8px}}
 </style></head><body>
 <header class="top"><div class="topin"><div><h1>TCG Pocket · Plan 15 jours</h1><div class="sub">3 → 17 octobre 2026 · touche une action pour la valider</div></div><div class="count"><span id="gc">0 / 60</span><div class="bar"><div class="fill" id="gb"></div></div></div></div></header>
-<main><div class="tools"><div class="note">✓ Sauvegarde locale sur cet appareil</div><button class="reset" id="reset">Réinitialiser</button></div><div id="cal"></div><div class="foot">Les validations restent mémorisées dans Safari/Chrome via localStorage.</div></main>
+<main>
+  <nav class="tabs"><button class="tab active" id="tabCalendar">Calendrier</button><button class="tab" id="tabInventory">Cartes disponibles</button></nav>
+  <section class="appPage calendarPage active" id="calendarPage"><div class="tools"><div class="note">✓ Sauvegarde locale sur cet appareil</div><button class="reset" id="reset">Réinitialiser</button></div><div id="cal"></div><div class="foot">Les validations restent mémorisées dans Safari/Chrome via localStorage.</div></section>
+  <section class="appPage inventoryPage" id="inventoryPage"><div class="inventoryIntro"><h2>Cartes pas encore obtenues</h2><p>Quand tu obtiens une de ces cartes, indique sur quel compte elle est disponible. Elle pourra alors être proposée comme remplacement pour une action provenant de ce compte.</p><div class="inventoryStats" id="inventoryStats"></div></div><div id="inventoryList"></div></section>
+</main>
 <div class="modal" id="modal"><div class="sheet"><div class="sheethead"><div><h2>Choisir une carte de remplacement</h2><div class="sheetp" id="modalText"></div></div><button class="close" id="closeModal">Fermer</button></div><div class="choices" id="choices"></div></div></div>
 <script>
 const K='tcgpocket-plan-2026-10-v1';
 const KR='tcgpocket-plan-2026-10-replacements-v1';
 const KO='tcgpocket-plan-2026-10-obtained-v1';
+const KA='tcgpocket-plan-2026-10-account-availability-v1';
 
 const pool3=[[250,'Fragilady'],[257,'Teal Mask Ogerpon'],[267,'Victini'],[290,'Glaviodo'],[306,'Okéoké'],[307,'Korillon'],[310,'Nymphali'],[311,'Trousselin'],[314,'Virevorreur'],[325,"Grotadmorv d'Alola"],[328,'Darkrai'],[331,'Zarude'],[335,'Galarian Perrserker'],[340,'Exagide'],[348,'Tranchodon'],[355,'Delcatty'],[358,'Goinfrex']];
 const pool2=[[263,'Feurisson'],[265,'Galifeu'],[274,'Carabaffe'],[286,'Arrozard'],[296,'Lainergie'],[299,'Iguolta'],[303,'Épine-de-Fer'],[320,'Géolithe'],[339,'Dimoclès'],[344,'Draco'],[347,'Incisache'],[349,'Draïeul'],[363,'Bleuseille'],[364,'Glace Veinarde'],[365,'Générateur Électrique'],[366,'Order Pad'],[368,'Souffleur de Terrain'],[369,'Patch de Flamme'],[370,'Deceptive Needle'],[371,'Œuf Chance'],[372,'Petit Ballon'],[373,'Capsule Énergie Booster Temps Jadis'],[374,'Capsule Énergie Booster Temps Futur'],[375,'Poncho Protecteur'],[376,'Barrière Métallique'],[377,'Cape Élégante'],[378,'Iris'],[384,'Lem'],[387,'Skyla'],[388,'Pepper'],[391,'Copieuse'],[394,"Arène de l'Antiquité"],[399,'Rainbow Cave'],[401,'Plaine de Départ']];
 const pool1=[[242,'Insécateur'],[247,'Apitrini'],[249,'Chlorobule'],[251,'Fermite'],[253,'Matourgeon'],[255,'Olivado'],[264,'Poussifeu'],[271,'Charbambin'],[275,"Goupix d'Alola"],[277,'Magicarpe'],[283,'Grenousse'],[288,'Frigodo'],[289,'Cryodo'],[291,'Pikachu'],[295,'Wattouat'],[304,'Tarsal'],[317,'Kraknoix'],[330,'Venalgue'],[336,'Terhal'],[338,'Monorpale'],[343,'Minidraco'],[350,'Rattata'],[357,'Laporeille']];
+const unlockableCards=[
+ {id:252,n:'Poussacha',r:1},{id:268,n:'Chochodile',r:1},{id:269,n:'Crocogril',r:1},{id:280,n:'Carvanha',r:1},{id:282,n:'Barpau',r:1},{id:297,n:'Dynamvolt',r:1},{id:300,n:'Voltoutou',r:1},{id:302,n:'Têtampoule',r:1},{id:313,n:'Virovent',r:1},{id:315,n:'Mordudor',r:1},{id:319,n:'Nodulithe',r:1},{id:321,n:'Crabicoque',r:1},{id:324,n:"Tadmorv d'Alola",r:1},{id:342,n:'Meltan',r:1},{id:346,n:'Coupenotte',r:1},{id:354,n:'Skitty',r:1},{id:361,n:'Couaneton',r:1},{id:362,n:'Minisange',r:1},
+ {id:238,n:'Herbizarre',r:2},{id:259,n:'Reptincel',r:2},{id:279,n:'Flobio',r:2},{id:294,n:'Magnéton',r:2},{id:327,n:'Spectrum',r:2},{id:379,n:'Floriane',r:2},{id:385,n:'Serena',r:2},{id:389,n:'Marc',r:2},{id:392,n:'Atalante',r:2},{id:400,n:'Sentier de Randonnée',r:2},
+ {id:272,n:'Hearthflame Mask Ogerpon',r:3}
+];
+const unlockableByRarity=r=>unlockableCards.filter(c=>c.r===r).map(c=>[c.id,c.n]);
+
 
 const d3=[[250,'Fragilady'],[257,'Teal Mask Ogerpon'],[267,'Victini'],[355,'Delcatty'],[306,'Okéoké'],[307,'Korillon'],[310,'Nymphali'],[311,'Trousselin'],[314,'Virevorreur'],[325,"Grotadmorv d'Alola"],[328,'Darkrai'],[331,'Zarude'],[335,'Galarian Perrserker'],[340,'Exagide'],[348,'Tranchodon']];
 const d2s=[[263,'Feurisson'],[265,'Galifeu'],[274,'Carabaffe'],[286,'Arrozard'],[296,'Lainergie'],[299,'Iguolta'],[303,'Épine-de-Fer'],[320,'Géolithe'],[339,'Dimoclès'],[344,'Draco'],[347,'Incisache'],[349,'Draïeul'],[363,'Bleuseille'],[364,'Glace Veinarde'],[365,'Générateur Électrique']];
@@ -47,29 +63,83 @@ const days=Array.from({length:15},(_,i)=>({date:iso(i),label:label(i),a:[
  {k:`${i}d`,g:`${i}s`,f:'SECONDARY',t:'MAIN',v:'Trade',r:2,id:d2s[i][0],n:d2s[i][1]}
 ]}));
 
-let s={}, repl={}, obtained=[290];
+let s={}, repl={}, obtained=[290], availability={};
 try{s=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 try{repl=JSON.parse(localStorage.getItem(KR)||'{}')}catch(e){}
 try{obtained=[...new Set([290,...JSON.parse(localStorage.getItem(KO)||'[]')])]}catch(e){}
-const save=()=>{localStorage.setItem(K,JSON.stringify(s));localStorage.setItem(KR,JSON.stringify(repl));localStorage.setItem(KO,JSON.stringify(obtained))};
+try{availability=JSON.parse(localStorage.getItem(KA)||'{}')||{}}catch(e){availability={}}
+const save=()=>{localStorage.setItem(K,JSON.stringify(s));localStorage.setItem(KR,JSON.stringify(repl));localStorage.setItem(KO,JSON.stringify(obtained));localStorage.setItem(KA,JSON.stringify(availability))};
 const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const cardFor=a=>repl[a.g]||{id:a.id,n:a.n,r:a.r};
+const cardFor=a=>repl[a.k]||repl[a.g]||{id:a.id,n:a.n,r:a.r};
 const allActions=()=>days.flatMap(d=>d.a);
 const usedIds=()=>new Set(allActions().map(a=>cardFor(a).id));
-const poolForRarity=r=>r===3?pool3:r===2?pool2:pool1;
-function availableFromPool(pool,r,used,got){return pool.filter(([id])=>!used.has(id)&&!got.has(id)).map(([id,n])=>({id,n,r}));}
+const basePoolForRarity=r=>r===3?pool3:r===2?pool2:pool1;
+const poolForRarity=r=>[...basePoolForRarity(r),...unlockableByRarity(r)];
+const unlockableIds=new Set(unlockableCards.map(c=>c.id));
+
+// Les cartes des anciennes captures étaient déjà disponibles côté BROOKLYN.
+// Les 29 nouvelles cartes ne deviennent disponibles qu'après sélection du compte dans l'onglet Cartes disponibles.
+function accountsForCard(id){
+ if(unlockableIds.has(id)) return Array.isArray(availability[id])?availability[id]:[];
+ return ['BROOKLYN'];
+}
+function isAvailableOn(id,account){return accountsForCard(id).includes(account)}
+function optionMode(a,id){
+ if(a.f==='BROOKLYN') return isAvailableOn(id,'BROOKLYN')?'chain':null;
+ if(a.f==='SECONDARY'){
+   if(isAvailableOn(id,'SECONDARY')) return 'direct';
+   if(isAvailableOn(id,'BROOKLYN')) return 'chain';
+ }
+ return null;
+}
+function availableFromPool(pool,r,used,got,a){
+ return pool.filter(([id])=>!used.has(id)&&!got.has(id)&&optionMode(a,id))
+   .map(([id,n])=>({id,n,r,mode:optionMode(a,id),accounts:accountsForCard(id)}));
+}
 function replacementOptions(a){
  const used=usedIds(), got=new Set(obtained), currentRarity=cardFor(a).r||a.r;
- // Priorité : même rareté. Si épuisée, descendre d'un cran, puis encore d'un cran.
  const rarities=currentRarity===3?[3,2,1]:currentRarity===2?[2,1]:[1];
  for(const r of rarities){
-   const opts=availableFromPool(poolForRarity(r),r,used,got);
+   const opts=availableFromPool(poolForRarity(r),r,used,got,a);
    if(opts.length)return {options:opts,rarity:r,fallback:r!==currentRarity,from:currentRarity};
  }
  return {options:[],rarity:null,fallback:false,from:currentRarity};
 }
 
 function ah(a){let done=!!s[a.k], c=cardFor(a), changed=!!repl[a.g], rarity=c.r||a.r, kind=a.v.toLowerCase()==='trade'?'trade':'share';return `<article class="action ${kind} ${done?'done':''}"><button class="act" data-k="${a.k}"><div class="pic"><img src="${img(c.id)}" alt="${esc(c.n)}" loading="lazy"><div class="check"><b>✓</b></div></div><div><div class="route"><strong>${a.f}</strong> → <strong>${a.t}</strong></div><span class="verb">${a.v}</span><div class="name">${esc(c.n)}</div><div class="meta">#${pad(c.id)} · <span class="dia">${'♦'.repeat(rarity)}</span>${changed?' · remplacement':''}</div><div class="status"><span class="dot"></span>${done?'Fait':'À faire'}</div></div></button><button class="already" data-got="${a.k}" ${done?'disabled':''}>Je l’ai déjà obtenue autrement</button></article>`}
+
+
+function renderInventory(){
+ const total=unlockableCards.length;
+ const availableCount=unlockableCards.filter(c=>accountsForCard(c.id).length>0).length;
+ inventoryStats.textContent=`${availableCount} / ${total} cartes désormais disponibles sur BROOKLYN ou SECONDARY`;
+ inventoryList.innerHTML=[3,2,1].map(r=>{
+   const cards=unlockableCards.filter(c=>c.r===r);
+   return `<section class="raritySection"><div class="rarityTitle">${'♦'.repeat(r)} · ${cards.length} carte${cards.length>1?'s':''}</div><div class="inventoryGrid">${cards.map(c=>{
+     const acc=accountsForCard(c.id), hasB=acc.includes('BROOKLYN'), hasS=acc.includes('SECONDARY');
+     const status=acc.length?`Disponible : ${acc.join(' + ')}`:'Pas encore obtenue';
+     return `<article class="ownCard ${acc.length?'available':''}"><img src="${img(c.id)}" alt="${esc(c.n)}" loading="lazy"><div class="ownName">${esc(c.n)}</div><div class="ownMeta">#${pad(c.id)} · ${'♦'.repeat(c.r)}</div><div class="ownStatus">${status}</div><div class="accountBtns"><button class="acct ${hasB?'on':''}" data-own="${c.id}" data-account="BROOKLYN">BROOKLYN</button><button class="acct ${hasS?'on':''}" data-own="${c.id}" data-account="SECONDARY">SECONDARY</button></div></article>`
+   }).join('')}</div></section>`
+ }).join('');
+ inventoryList.querySelectorAll('.acct').forEach(b=>b.onclick=()=>{
+   const id=Number(b.dataset.own), account=b.dataset.account;
+   const set=new Set(Array.isArray(availability[id])?availability[id]:[]);
+   if(set.has(account))set.delete(account);else set.add(account);
+   if(set.size)availability[id]=[...set];else delete availability[id];
+   save();renderInventory();
+ });
+}
+
+function showPage(page){
+ const isCalendar=page==='calendar';
+ calendarPage.classList.toggle('active',isCalendar);
+ inventoryPage.classList.toggle('active',!isCalendar);
+ tabCalendar.classList.toggle('active',isCalendar);
+ tabInventory.classList.toggle('active',!isCalendar);
+ if(!isCalendar)renderInventory();
+}
+tabCalendar.onclick=()=>showPage('calendar');
+tabInventory.onclick=()=>showPage('inventory');
 
 function todayISO(){let now=new Date();return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`}
 function targetDay(){const ti=todayISO();return days.find(d=>d.date>=ti)||days[days.length-1]}
@@ -82,19 +152,33 @@ let activeAction=null;
 function openReplace(k){
  activeAction=allActions().find(a=>a.k===k);if(!activeAction)return;
  const c=cardFor(activeAction), result=replacementOptions(activeAction), opts=result.options;
- const fallbackText=result.fallback?` Plus aucune carte ${'♦'.repeat(result.from)} disponible : je te propose donc les ${'♦'.repeat(result.rarity)}.`:` Choisis une autre carte ${'♦'.repeat(result.rarity||result.from)} encore manquante.`;
+ const fallbackText=result.fallback?` Plus aucune carte ${'♦'.repeat(result.from)} disponible pour ce circuit : je te propose donc les ${'♦'.repeat(result.rarity)}.`:` Choisis une autre carte ${'♦'.repeat(result.rarity||result.from)} disponible sur le bon compte.`;
  modalText.innerHTML=`Tu as déjà <strong>${esc(c.n)} #${pad(c.id)}</strong>.${fallbackText}`;
- choices.innerHTML=opts.length?opts.map(x=>`<button class="choice" data-id="${x.id}" data-r="${x.r}"><img src="${img(x.id)}" alt="${esc(x.n)}"><div class="choicename">${esc(x.n)}</div><div class="choicemeta">#${pad(x.id)} · ${'♦'.repeat(x.r)}${result.fallback?' · rareté inférieure':''}</div></button>`).join(''):`<div class="empty">Aucune carte de remplacement disponible, même en descendant de rareté.</div>`;
- choices.querySelectorAll('.choice').forEach(b=>b.onclick=()=>chooseReplacement(Number(b.dataset.id),Number(b.dataset.r)));
+ choices.innerHTML=opts.length?opts.map(x=>{
+   const source=x.mode==='direct'?'Disponible sur SECONDARY':'Disponible sur BROOKLYN';
+   const route=x.mode==='direct'?'trade direct':'via partage vers SECONDARY';
+   return `<button class="choice" data-id="${x.id}" data-r="${x.r}" data-mode="${x.mode}"><img src="${img(x.id)}" alt="${esc(x.n)}"><div class="choicename">${esc(x.n)}</div><div class="choicemeta">#${pad(x.id)} · ${'♦'.repeat(x.r)}${result.fallback?' · rareté inférieure':''}</div><div class="choiceSource">${source}${activeAction.f==='SECONDARY'?' · '+route:''}</div></button>`
+ }).join(''):`<div class="empty">Aucune carte de remplacement disponible sur le compte nécessaire, même en descendant de rareté.</div>`;
+ choices.querySelectorAll('.choice').forEach(b=>b.onclick=()=>chooseReplacement(Number(b.dataset.id),Number(b.dataset.r),b.dataset.mode));
  modal.classList.add('open')
 }
 function closeReplace(){modal.classList.remove('open');activeAction=null}
-function chooseReplacement(id,rarity){
+function chooseReplacement(id,rarity,mode){
  if(!activeAction)return;
  const current=cardFor(activeAction), pool=poolForRarity(rarity), found=pool.find(x=>x[0]===id);if(!found)return;
  obtained=[...new Set([...obtained,current.id])];
- repl[activeAction.g]={id:found[0],n:found[1],r:rarity};
- allActions().filter(a=>a.g===activeAction.g).forEach(a=>{s[a.k]=false});
+ const replacement={id:found[0],n:found[1],r:rarity};
+ if(activeAction.g.endsWith('s')&&mode==='chain'){
+   // Carte disponible sur BROOKLYN : on conserve le circuit en deux étapes.
+   delete repl[`${activeAction.g.slice(0,-1)}b`];
+   delete repl[`${activeAction.g.slice(0,-1)}d`];
+   repl[activeAction.g]=replacement;
+   allActions().filter(a=>a.g===activeAction.g).forEach(a=>{s[a.k]=false});
+ }else{
+   // Carte déjà disponible sur le compte source : remplacement de cette action uniquement.
+   repl[activeAction.k]=replacement;
+   s[activeAction.k]=false;
+ }
  save();closeReplace();render()
 }
 
