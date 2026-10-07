@@ -1,199 +1,246 @@
-<!doctype html><html lang="fr"><head><link rel="apple-touch-icon" sizes="180x180" href="./icon.png"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="apple-touch-icon" href="./icon-180-v2.png"><title>TCG Pocket · Plan 15 jours</title>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TCG Pocket">
+<head><link rel="apple-touch-icon" sizes="180x180" href="./icon.png">
+<title>TCG Pocket · Planning dynamique</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07111f;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:calc(25px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}.top{position:sticky;top:0;z-index:5;background:#07111fee;backdrop-filter:blur(14px);padding:calc(10px + env(safe-area-inset-top)) 12px 10px;border-bottom:1px solid #263a56}.topin,main{max-width:1150px;margin:auto}.topin{display:flex;justify-content:space-between;align-items:center;gap:10px}h1{font-size:20px;margin:0}.sub,.note{color:#9fb0c6;font-size:11px}.count{text-align:right;font-weight:800}.bar{height:5px;background:#1e293b;border-radius:9px;margin-top:5px;overflow:hidden}.fill{height:100%;background:#22c55e;width:0}.tools{display:flex;justify-content:space-between;align-items:center;margin:12px 2px}.reset{background:none;color:#9fb0c6;border:1px solid #263a56;border-radius:9px;padding:7px 9px}.day{background:#0f1b2d;border:1px solid #263a56;border-radius:16px;margin:0 0 14px;overflow:hidden}.day.today{border-color:#60a5fa}.day.complete{border-color:#22c55e}.dh{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-bottom:1px solid #263a56}.date{font-weight:800;text-transform:capitalize}.todaytag{color:#60a5fa;font-size:10px;margin-left:6px}.dp{font-size:12px;color:#9fb0c6;font-weight:800}.complete .dp{color:#22c55e}.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px}.action{background:#132238;border:1px solid #263a56;border-radius:13px;overflow:hidden}.action.share{background:linear-gradient(145deg,#172a46,#132238);border-color:#31547c}.action.trade{background:linear-gradient(145deg,#302044,#1c1830);border-color:#65457f}.action.share .verb{background:#1d4ed844;color:#bfdbfe}.action.trade .verb{background:#9333ea33;color:#e9d5ff}.action.done{border-color:#22c55e;background:#123322}.action.done.share,.action.done.trade{background:#123322}.already{width:calc(100% - 16px);margin:0 8px 8px;border:1px solid #3b4f6a;background:#0b1728;color:#cbd5e1;border-radius:9px;padding:8px 9px;font-size:11px;font-weight:800}.already:active{transform:scale(.99)}.action.done .already{opacity:.45}.act{width:100%;border:0;background:none;color:inherit;text-align:left;padding:8px;display:grid;grid-template-columns:88px 1fr;gap:9px;align-items:center;-webkit-tap-highlight-color:transparent}.pic{width:88px;aspect-ratio:.716;position:relative;overflow:hidden;border-radius:7px;background:#050b13}.pic img{width:100%;height:100%;object-fit:cover;display:block}.check{position:absolute;inset:0;background:#052e1688;display:grid;place-items:center;opacity:0}.done .check{opacity:1}.check b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#22c55e;font-size:26px}.route{font-size:10px;color:#9fb0c6;font-weight:700}.route strong{color:#dbeafe}.verb{display:inline-block;margin-top:5px;padding:3px 6px;border-radius:10px;background:#1d4ed833;color:#bfdbfe;font-size:10px;font-weight:800}.name{font-size:14px;font-weight:800;margin-top:6px;line-height:1.15}.meta,.status{font-size:11px;color:#9fb0c6;margin-top:5px}.dia{color:#fbbf24}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#64748b;margin-right:5px}.done .status{color:#86efac}.done .dot{background:#22c55e}main{padding:0 10px}.modal{position:fixed;inset:0;z-index:30;background:#020617d9;display:none;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top)}.modal.open{display:flex}.sheet{width:min(760px,100%);max-height:88vh;overflow:auto;background:#0f1b2d;border:1px solid #334155;border-radius:20px 20px 0 0;padding:14px 12px calc(18px + env(safe-area-inset-bottom))}.sheethead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;position:sticky;top:-14px;background:#0f1b2df5;padding:14px 0 10px;z-index:2}.sheet h2{font-size:18px;margin:0}.sheetp{font-size:12px;color:#9fb0c6;margin-top:4px}.close{border:1px solid #475569;background:#172337;color:#fff;border-radius:10px;padding:8px 11px;font-weight:800}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.choice{border:1px solid #334155;background:#132238;color:#fff;border-radius:12px;padding:7px;text-align:left}.choice img{width:100%;aspect-ratio:.716;object-fit:cover;border-radius:7px;display:block}.choicename{font-size:12px;font-weight:800;margin-top:6px;line-height:1.15}.choicemeta{font-size:10px;color:#fbbf24;margin-top:4px}.empty{padding:20px 4px;color:#cbd5e1;text-align:center}.foot{text-align:center;color:#9fb0c6;font-size:10px}
-.tabs{max-width:1150px;margin:8px auto 0;padding:0 10px;display:flex;gap:8px}.tab{flex:1;border:1px solid #334155;background:#0f1b2d;color:#9fb0c6;border-radius:11px;padding:9px 10px;font-weight:800;font-size:12px}.tab.active{background:#1d4ed8;color:#fff;border-color:#3b82f6}.appPage{display:none}.appPage.active{display:block}.inventoryPage{max-width:1150px;margin:0 auto;padding:10px}.inventoryIntro{background:#0f1b2d;border:1px solid #263a56;border-radius:14px;padding:12px;margin-bottom:10px}.inventoryIntro h2{font-size:17px;margin:0 0 5px}.inventoryIntro p{font-size:11px;color:#9fb0c6;margin:0;line-height:1.4}.inventoryStats{font-size:12px;font-weight:800;margin-top:8px;color:#dbeafe}.raritySection{margin:14px 0}.rarityTitle{font-size:14px;font-weight:900;margin:0 0 8px;color:#fbbf24}.inventoryGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.ownCard{background:#0f1b2d;border:1px solid #263a56;border-radius:13px;padding:7px;overflow:hidden}.ownCard.available{border-color:#22c55e}.ownCard img{width:100%;aspect-ratio:.716;object-fit:cover;border-radius:8px;display:block;background:#050b13}.ownName{font-size:12px;font-weight:850;line-height:1.15;margin-top:6px}.ownMeta{font-size:10px;color:#fbbf24;margin-top:3px}.ownStatus{font-size:10px;color:#9fb0c6;margin-top:5px;min-height:24px}.accountBtns{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:6px}.acct{border:1px solid #3b4f6a;background:#0b1728;color:#cbd5e1;border-radius:8px;padding:7px 4px;font-size:9px;font-weight:850}.acct.on{background:#14532d;border-color:#22c55e;color:#dcfce7}.choiceSource{font-size:9px;color:#93c5fd;margin-top:3px;font-weight:800}
-@media(max-width:900px){.actions{grid-template-columns:repeat(2,1fr)}.inventoryGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:600px){
-  html,body{height:100%;overflow:hidden}
-  .choices{grid-template-columns:repeat(2,1fr)}
-  .tabs{flex:0 0 40px;margin:0;padding:4px 7px 3px;gap:6px}.tab{padding:6px 8px;font-size:11px}
-  .appPage{min-height:0}.calendarPage.active{display:flex;flex:1;min-height:0;flex-direction:column}.inventoryPage.active{display:block;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:7px 7px calc(18px + env(safe-area-inset-bottom))}
-  .inventoryGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.inventoryIntro{padding:10px;margin-bottom:7px}.raritySection{margin:10px 0}.ownCard{padding:6px}.ownName{font-size:11px}.acct{font-size:9px;padding:7px 3px}
-  h1{font-size:16px}.sub{display:none}.top{padding-top:calc(7px + env(safe-area-inset-top));padding-bottom:7px}.count{font-size:13px}
-  main{height:calc(100svh - 51px - env(safe-area-inset-top));padding:0 7px;display:flex;flex-direction:column;overflow:hidden}
-  .tools{flex:0 0 37px;margin:0 2px;display:flex;align-items:center}.reset{padding:5px 7px;font-size:11px}.note{font-size:10px}
-  #cal{flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scroll-snap-type:y mandatory;scroll-behavior:smooth;scrollbar-width:none}
-  #cal::-webkit-scrollbar{display:none}
-  .day{height:calc(100% - 30px);min-height:0;margin:0 0 30px;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always}
-  .dh{padding:8px 9px;min-height:42px}.date{font-size:13px}.dp{font-size:11px}
-  .actions{flex:1;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:6px;padding:6px}
-  .action{min-height:0;display:flex;flex-direction:column}
-  .act{flex:1;min-height:0;grid-template-columns:68px minmax(0,1fr);gap:6px;padding:6px;align-items:center}
-  .pic{width:68px}.name{font-size:13px;margin-top:4px}.route{font-size:9px}.verb{font-size:9px;margin-top:4px;padding:2px 5px}.meta,.status{font-size:10px;margin-top:4px}
-  .already{width:calc(100% - 12px);margin:0 6px 6px;padding:6px 5px;font-size:9px;line-height:1.15}
-  .foot{display:none}
-}
-@media(max-width:360px){.act{grid-template-columns:58px minmax(0,1fr)}.pic{width:58px}.name{font-size:12px}.already{font-size:8px}}
-</style></head><body>
-<header class="top"><div class="topin"><div><h1>TCG Pocket · Plan 15 jours</h1><div class="sub">3 → 17 octobre 2026 · touche une action pour la valider</div></div><div class="count"><span id="gc">0 / 60</span><div class="bar"><div class="fill" id="gb"></div></div></div></div></header>
+*{box-sizing:border-box}html,body{margin:0;background:#07111f;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}body{min-height:100vh;padding-bottom:env(safe-area-inset-bottom)}button{font:inherit}.top{position:sticky;top:0;z-index:10;background:#07111ff2;backdrop-filter:blur(14px);padding:calc(8px + env(safe-area-inset-top)) 11px 8px;border-bottom:1px solid #263a56}.topin,main{max-width:1150px;margin:auto}.topin{display:flex;justify-content:space-between;align-items:center;gap:10px}h1{font-size:18px;margin:0}.sub,.note{color:#9fb0c6;font-size:10px}.count{text-align:right;font-size:13px;font-weight:850;white-space:nowrap}.bar{height:5px;background:#1e293b;border-radius:9px;margin-top:5px;overflow:hidden}.fill{height:100%;background:#22c55e;width:0}main{padding:0 8px}.tabs{display:flex;gap:7px;padding:6px 0 4px}.tab{flex:1;border:1px solid #334155;background:#0f1b2d;color:#9fb0c6;border-radius:10px;padding:7px 8px;font-weight:850;font-size:11px}.tab.active{background:#1d4ed8;color:#fff;border-color:#3b82f6}.appPage{display:none}.appPage.active{display:block}.tools{display:flex;gap:6px;justify-content:space-between;align-items:center;margin:2px 1px 5px}.toolBtns{display:flex;gap:5px}.smallBtn{background:#0f1b2d;color:#cbd5e1;border:1px solid #334155;border-radius:8px;padding:5px 7px;font-size:9px;font-weight:800}#cal{scrollbar-width:none}#cal::-webkit-scrollbar{display:none}.day{background:#0f1b2d;border:1px solid #263a56;border-radius:16px;overflow:hidden;margin-bottom:30px}.day.today{border-color:#60a5fa}.day.complete{border-color:#22c55e}.dh{display:flex;justify-content:space-between;align-items:center;padding:9px 10px;border-bottom:1px solid #263a56}.date{font-size:13px;font-weight:850;text-transform:capitalize}.todaytag{color:#60a5fa;font-size:9px;margin-left:5px}.dp{font-size:10px;color:#9fb0c6;font-weight:850}.complete .dp{color:#22c55e}.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:7px}.action{background:#132238;border:1px solid #263a56;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}.action.share{background:linear-gradient(145deg,#172a46,#132238);border-color:#31547c}.action.trade{background:linear-gradient(145deg,#302044,#1c1830);border-color:#65457f}.action.done{border-color:#22c55e!important;background:#123322!important}.act{width:100%;border:0;background:none;color:inherit;text-align:left;padding:6px;display:grid;grid-template-columns:68px minmax(0,1fr);gap:7px;align-items:center;flex:1;-webkit-tap-highlight-color:transparent}.pic{width:68px;aspect-ratio:.716;position:relative;overflow:hidden;border-radius:7px;background:#050b13}.pic img{width:100%;height:100%;object-fit:cover;display:block}.check{position:absolute;inset:0;background:#052e1688;display:grid;place-items:center;opacity:0}.done .check{opacity:1}.check b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#22c55e;font-size:23px}.route{font-size:9px;color:#9fb0c6;font-weight:750}.route strong{color:#dbeafe}.verb{display:inline-block;margin-top:4px;padding:2px 5px;border-radius:9px;font-size:9px;font-weight:850}.share .verb{background:#1d4ed844;color:#bfdbfe}.trade .verb{background:#9333ea33;color:#e9d5ff}.name{font-size:12px;font-weight:850;margin-top:4px;line-height:1.12}.meta,.status{font-size:9px;color:#9fb0c6;margin-top:4px}.dia{color:#fbbf24}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#64748b;margin-right:4px}.done .status{color:#86efac}.done .dot{background:#22c55e}.already{width:calc(100% - 12px);margin:0 6px 6px;border:1px solid #3b4f6a;background:#0b1728;color:#cbd5e1;border-radius:8px;padding:6px 4px;font-size:8px;font-weight:850;line-height:1.15}.action.done .already{opacity:.45}.emptyDay{display:grid;place-items:center;min-height:180px;color:#9fb0c6;text-align:center;padding:20px;font-size:12px}.statusPage{padding-bottom:30px}.statusBox{background:#0f1b2d;border:1px solid #263a56;border-radius:14px;padding:11px;margin:5px 0 10px}.statusBox h2{font-size:16px;margin:0 0 5px}.statusBox p{font-size:10px;color:#9fb0c6;margin:3px 0;line-height:1.4}.fileok{color:#86efac}.fileerr{color:#fca5a5}.statGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}.stat{background:#132238;border-radius:10px;padding:8px;text-align:center}.stat b{display:block;font-size:18px}.stat span{font-size:9px;color:#9fb0c6}.raritySection{margin:12px 0}.rarityTitle{font-size:13px;font-weight:900;color:#fbbf24;margin:0 0 7px}.inventoryGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.ownCard{background:#0f1b2d;border:1px solid #263a56;border-radius:11px;padding:6px;overflow:hidden}.ownCard.available{border-color:#22c55e}.ownCard.none{border-color:#7f1d1d}.ownCard img{width:100%;aspect-ratio:.716;object-fit:cover;border-radius:7px;display:block;background:#050b13}.ownName{font-size:10px;font-weight:850;line-height:1.12;margin-top:5px}.ownMeta{font-size:9px;color:#fbbf24;margin-top:3px}.badge{display:inline-block;margin:4px 3px 0 0;padding:3px 5px;border-radius:7px;font-size:8px;font-weight:850}.badge.b{background:#1d4ed844;color:#bfdbfe}.badge.s{background:#7e22ce44;color:#e9d5ff}.badge.none{background:#7f1d1d55;color:#fecaca}.modal{position:fixed;inset:0;z-index:30;background:#020617d9;display:none;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top)}.modal.open{display:flex}.sheet{width:min(760px,100%);max-height:88vh;overflow:auto;background:#0f1b2d;border:1px solid #334155;border-radius:20px 20px 0 0;padding:13px 11px calc(18px + env(safe-area-inset-bottom))}.sheethead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;position:sticky;top:-13px;background:#0f1b2df5;padding:13px 0 9px;z-index:2}.sheet h2{font-size:17px;margin:0}.sheetp{font-size:11px;color:#9fb0c6;margin-top:4px}.close{border:1px solid #475569;background:#172337;color:#fff;border-radius:9px;padding:7px 9px;font-weight:800}.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.choice{border:1px solid #334155;background:#132238;color:#fff;border-radius:11px;padding:6px;text-align:left}.choice img{width:100%;aspect-ratio:.716;object-fit:cover;border-radius:7px;display:block}.choicename{font-size:11px;font-weight:850;margin-top:5px;line-height:1.12}.choicemeta{font-size:9px;color:#fbbf24;margin-top:3px}.choiceSource{font-size:8px;color:#93c5fd;margin-top:3px;font-weight:800}.loading{padding:40px 15px;text-align:center;color:#cbd5e1}.error{margin:12px;background:#3f1018;border:1px solid #7f1d1d;border-radius:12px;padding:12px;color:#fecaca;font-size:11px;line-height:1.5}
+@media(min-width:700px){.actions{grid-template-columns:repeat(4,1fr)}.inventoryGrid{grid-template-columns:repeat(6,minmax(0,1fr))}.act{grid-template-columns:88px 1fr}.pic{width:88px}}
+@media(max-width:600px){html,body{height:100%;overflow:hidden}body{display:flex;flex-direction:column}.top{flex:0 0 auto}main{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 7px}.tabs{flex:0 0 39px}.appPage{min-height:0}.calendarPage.active{display:flex;flex:1;min-height:0;flex-direction:column}.statusPage.active{display:block;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}.tools{flex:0 0 34px}#cal{flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scroll-snap-type:y mandatory;scroll-behavior:smooth}.day{height:calc(100% - 34px);min-height:0;margin:0 0 34px;display:flex;flex-direction:column;scroll-snap-align:start;scroll-snap-stop:always}.dh{min-height:39px;padding:7px 9px}.actions{flex:1;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr));padding:6px;gap:6px}.action{min-height:0}.act{min-height:0}.emptyDay{flex:1}h1{font-size:15px}.sub{display:none}.inventoryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.act{grid-template-columns:58px minmax(0,1fr)}.pic{width:58px}.name{font-size:11px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin"><div><h1>TCG Pocket · Planning dynamique</h1><div class="sub" id="subtitle">Chargement des collections…</div></div><div class="count"><span id="gc">–</span><div class="bar"><div class="fill" id="gb"></div></div></div></div></header>
 <main>
-  <nav class="tabs"><button class="tab active" id="tabCalendar">Calendrier</button><button class="tab" id="tabInventory">Cartes disponibles</button></nav>
-  <section class="appPage calendarPage active" id="calendarPage"><div class="tools"><div class="note">✓ Sauvegarde locale sur cet appareil</div><button class="reset" id="reset">Réinitialiser</button></div><div id="cal"></div><div class="foot">Les validations restent mémorisées dans Safari/Chrome via localStorage.</div></section>
-  <section class="appPage inventoryPage" id="inventoryPage"><div class="inventoryIntro"><h2>Cartes pas encore obtenues</h2><p>Quand tu obtiens une de ces cartes, indique sur quel compte elle est disponible. Elle pourra alors être proposée comme remplacement pour une action provenant de ce compte.</p><div class="inventoryStats" id="inventoryStats"></div></div><div id="inventoryList"></div></section>
+<nav class="tabs"><button class="tab active" id="tabCalendar">Calendrier</button><button class="tab" id="tabStatus">Collections</button></nav>
+<section class="appPage calendarPage active" id="calendarPage">
+  <div class="tools"><div class="note">✓ Planning calculé depuis collection/*.csv</div><div class="toolBtns"><button class="smallBtn" id="reloadBtn">Recharger CSV</button><button class="smallBtn" id="resetBtn">Réinitialiser</button></div></div>
+  <div id="cal"><div class="loading">Chargement des collections…</div></div>
+</section>
+<section class="appPage statusPage" id="statusPage"><div class="statusBox" id="statusSummary"></div><div id="statusList"></div></section>
 </main>
 <div class="modal" id="modal"><div class="sheet"><div class="sheethead"><div><h2>Choisir une carte de remplacement</h2><div class="sheetp" id="modalText"></div></div><button class="close" id="closeModal">Fermer</button></div><div class="choices" id="choices"></div></div></div>
 <script>
-const K='tcgpocket-plan-2026-10-v1';
-const KR='tcgpocket-plan-2026-10-replacements-v1';
-const KO='tcgpocket-plan-2026-10-obtained-v1';
-const KA='tcgpocket-plan-2026-10-account-availability-v1';
+const COLLECTION_DIR='./collection';
+const FILES={
+  MAIN:`${COLLECTION_DIR}/collection_main.csv`,
+  SECONDARY:`${COLLECTION_DIR}/collection_secondary.csv`,
+  BROOKLYN:`${COLLECTION_DIR}/collection_brooklyn.csv`
+};
+const SET_ID='B4B';
+const PLAN_START='2026-10-08';
+const PLAN_DAYS=15;
+const K_DONE='tcgpocket-dynamic-done-v1';
+const K_REPL='tcgpocket-dynamic-repl-v1';
+const K_GOT='tcgpocket-dynamic-obtained-v1';
+const CATALOG=[{"id":1,"n":"Bulbasaur","r":1},{"id":2,"n":"Ivysaur","r":2},{"id":4,"n":"Caterpie","r":1},{"id":5,"n":"Metapod","r":2},{"id":6,"n":"Butterfree","r":3},{"id":7,"n":"Scyther","r":1},{"id":9,"n":"Celebi","r":3},{"id":10,"n":"Treecko","r":1},{"id":11,"n":"Grovyle","r":2},{"id":13,"n":"Budew","r":3},{"id":14,"n":"Combee","r":1},{"id":16,"n":"Cottonee","r":1},{"id":18,"n":"Petilil","r":1},{"id":19,"n":"Lilligant","r":3},{"id":20,"n":"Durant","r":1},{"id":21,"n":"Sprigatito","r":1},{"id":22,"n":"Floragato","r":1},{"id":24,"n":"Smoliv","r":1},{"id":25,"n":"Dolliv","r":1},{"id":26,"n":"Arboliva","r":3},{"id":27,"n":"Teal Mask Ogerpon","r":3},{"id":29,"n":"Charmander","r":1},{"id":30,"n":"Charmeleon","r":2},{"id":33,"n":"Growlithe","r":1},{"id":34,"n":"Ponyta","r":1},{"id":36,"n":"Cyndaquil","r":1},{"id":37,"n":"Quilava","r":2},{"id":39,"n":"Torchic","r":1},{"id":40,"n":"Combusken","r":2},{"id":42,"n":"Numel","r":1},{"id":44,"n":"Victini","r":3},{"id":46,"n":"Fuecoco","r":1},{"id":47,"n":"Crocalor","r":1},{"id":48,"n":"Skeledirge","r":3},{"id":49,"n":"Charcadet","r":1},{"id":51,"n":"Hearthflame Mask Ogerpon","r":3},{"id":52,"n":"Squirtle","r":1},{"id":53,"n":"Wartortle","r":2},{"id":55,"n":"Alolan Vulpix","r":1},{"id":57,"n":"Slowpoke","r":1},{"id":59,"n":"Magikarp","r":1},{"id":62,"n":"Mudkip","r":1},{"id":63,"n":"Marshtomp","r":2},{"id":65,"n":"Carvanha","r":1},{"id":67,"n":"Wailmer","r":1},{"id":69,"n":"Feebas","r":1},{"id":71,"n":"Froakie","r":1},{"id":72,"n":"Frogadier","r":2},{"id":74,"n":"Sobble","r":1},{"id":75,"n":"Drizzile","r":2},{"id":76,"n":"Inteleon","r":3},{"id":78,"n":"Frigibax","r":1},{"id":79,"n":"Arctibax","r":1},{"id":80,"n":"Baxcalibur","r":3},{"id":82,"n":"Pikachu","r":1},{"id":83,"n":"Raichu","r":3},{"id":84,"n":"Magnemite","r":1},{"id":85,"n":"Magneton","r":2},{"id":88,"n":"Mareep","r":1},{"id":89,"n":"Flaaffy","r":2},{"id":91,"n":"Electrike","r":1},{"id":94,"n":"Helioptile","r":1},{"id":95,"n":"Heliolisk","r":2},{"id":97,"n":"Yamper","r":1},{"id":98,"n":"Toxel","r":1},{"id":100,"n":"Tadbulb","r":1},{"id":102,"n":"Iron Thorns","r":2},{"id":104,"n":"Ralts","r":1},{"id":105,"n":"Kirlia","r":2},{"id":108,"n":"Wynaut","r":3},{"id":109,"n":"Chingling","r":3},{"id":110,"n":"Mime Jr.","r":3},{"id":111,"n":"Meloetta","r":2},{"id":112,"n":"Sylveon","r":3},{"id":113,"n":"Klefki","r":3},{"id":117,"n":"Fidough","r":1},{"id":118,"n":"Bramblin","r":1},{"id":119,"n":"Brambleghast","r":3},{"id":121,"n":"Gimmighoul","r":1},{"id":122,"n":"Onix","r":1},{"id":124,"n":"Trapinch","r":1},{"id":126,"n":"Riolu","r":1},{"id":129,"n":"Roggenrola","r":1},{"id":130,"n":"Boldore","r":2},{"id":132,"n":"Dwebble","r":1},{"id":134,"n":"Rockruff","r":1},{"id":135,"n":"Falinks","r":2},{"id":137,"n":"Alolan Grimer","r":1},{"id":138,"n":"Alolan Muk","r":3},{"id":139,"n":"Gastly","r":1},{"id":140,"n":"Haunter","r":2},{"id":144,"n":"Darkrai","r":3},{"id":145,"n":"Zorua","r":1},{"id":147,"n":"Skrelp","r":1},{"id":150,"n":"Zarude","r":3},{"id":151,"n":"Bombirdier","r":3},{"id":152,"n":"Roaring Moon","r":3},{"id":153,"n":"Galarian Meowth","r":1},{"id":154,"n":"Galarian Perrserker","r":3},{"id":158,"n":"Beldum","r":1},{"id":159,"n":"Metang","r":2},{"id":161,"n":"Honedge","r":1},{"id":162,"n":"Doublade","r":2},{"id":163,"n":"Aegislash","r":3},{"id":164,"n":"Aegislash","r":3},{"id":165,"n":"Meltan","r":1},{"id":169,"n":"Dratini","r":1},{"id":170,"n":"Dragonair","r":2},{"id":171,"n":"Vibrava","r":2},{"id":174,"n":"Axew","r":1},{"id":175,"n":"Fraxure","r":2},{"id":176,"n":"Haxorus","r":3},{"id":177,"n":"Drampa","r":2},{"id":178,"n":"Rattata","r":1},{"id":179,"n":"Raticate","r":3},{"id":180,"n":"Meowth","r":1},{"id":183,"n":"Eevee","r":1},{"id":184,"n":"Skitty","r":1},{"id":185,"n":"Delcatty","r":3},{"id":186,"n":"Swablu","r":1},{"id":187,"n":"Buneary","r":1},{"id":188,"n":"Munchlax","r":3},{"id":189,"n":"Lillipup","r":1},{"id":191,"n":"Hisuian Zorua","r":1},{"id":193,"n":"Ducklett","r":1},{"id":195,"n":"Rookidee","r":1},{"id":196,"n":"Corvisquire","r":2},{"id":198,"n":"Lucky Ice Pop","r":2},{"id":199,"n":"Electric Generator","r":2},{"id":200,"n":"Order Pad","r":2},{"id":201,"n":"Quick-Grow Extract","r":2},{"id":202,"n":"Field Blower","r":2},{"id":203,"n":"Flame Patch","r":2},{"id":204,"n":"Deceptive Needle","r":2},{"id":205,"n":"Lucky Egg","r":2},{"id":206,"n":"Small Balloon","r":2},{"id":207,"n":"Ancient Booster Energy Capsule","r":2},{"id":208,"n":"Future Booster Energy Capsule","r":2},{"id":209,"n":"Protective Poncho","r":2},{"id":210,"n":"Metal Core Barrier","r":2},{"id":211,"n":"Elegant Cape","r":2},{"id":212,"n":"Iris","r":2},{"id":213,"n":"Juliana","r":2},{"id":214,"n":"Diantha","r":2},{"id":215,"n":"Calem","r":2},{"id":216,"n":"Puppy-Loving Girl","r":2},{"id":217,"n":"Korrina","r":2},{"id":218,"n":"Clemont","r":2},{"id":219,"n":"Serena","r":2},{"id":220,"n":"May","r":2},{"id":221,"n":"Skyla","r":2},{"id":222,"n":"Arven","r":2},{"id":223,"n":"Wallace","r":2},{"id":224,"n":"Wally","r":2},{"id":225,"n":"Copycat","r":2},{"id":226,"n":"Lisia","r":2},{"id":227,"n":"Fragrant Forest","r":2},{"id":228,"n":"Arena of Antiquity","r":2},{"id":229,"n":"Soothing Shore","r":2},{"id":230,"n":"Bounded Field","r":2},{"id":231,"n":"Mesagoza","r":2},{"id":232,"n":"Training Area","r":2},{"id":233,"n":"Rainbow Cave","r":2},{"id":234,"n":"Hiking Trail","r":2},{"id":235,"n":"Starting Plains","r":2},{"id":236,"n":"Peculiar Plaza","r":2},{"id":237,"n":"Bulbasaur","r":1},{"id":238,"n":"Herbizarre","r":2},{"id":239,"n":"Caterpie","r":1},{"id":240,"n":"Metapod","r":2},{"id":241,"n":"Butterfree","r":3},{"id":242,"n":"Insécateur","r":1},{"id":243,"n":"Celebi","r":3},{"id":244,"n":"Treecko","r":1},{"id":245,"n":"Grovyle","r":2},{"id":246,"n":"Budew","r":3},{"id":247,"n":"Apitrini","r":1},{"id":248,"n":"Cottonee","r":1},{"id":249,"n":"Chlorobule","r":1},{"id":250,"n":"Fragilady","r":3},{"id":251,"n":"Fermite","r":1},{"id":252,"n":"Poussacha","r":1},{"id":253,"n":"Matourgeon","r":1},{"id":254,"n":"Smoliv","r":1},{"id":255,"n":"Olivado","r":1},{"id":256,"n":"Arboliva","r":3},{"id":257,"n":"Teal Mask Ogerpon","r":3},{"id":258,"n":"Charmander","r":1},{"id":259,"n":"Reptincel","r":2},{"id":260,"n":"Growlithe","r":1},{"id":261,"n":"Ponyta","r":1},{"id":262,"n":"Cyndaquil","r":1},{"id":263,"n":"Feurisson","r":2},{"id":264,"n":"Poussifeu","r":1},{"id":265,"n":"Galifeu","r":2},{"id":266,"n":"Numel","r":1},{"id":267,"n":"Victini","r":3},{"id":268,"n":"Chochodile","r":1},{"id":269,"n":"Crocogril","r":1},{"id":270,"n":"Flâmigator","r":3},{"id":271,"n":"Charbambin","r":1},{"id":272,"n":"Hearthflame Mask Ogerpon","r":3},{"id":273,"n":"Squirtle","r":1},{"id":274,"n":"Carabaffe","r":2},{"id":275,"n":"Goupix d'Alola","r":1},{"id":276,"n":"Slowpoke","r":1},{"id":277,"n":"Magicarpe","r":1},{"id":278,"n":"Mudkip","r":1},{"id":279,"n":"Flobio","r":2},{"id":280,"n":"Carvanha","r":1},{"id":281,"n":"Wailmer","r":1},{"id":282,"n":"Barpau","r":1},{"id":283,"n":"Grenousse","r":1},{"id":284,"n":"Frogadier","r":2},{"id":285,"n":"Sobble","r":1},{"id":286,"n":"Arrozard","r":2},{"id":287,"n":"Inteleon","r":3},{"id":288,"n":"Frigodo","r":1},{"id":289,"n":"Cryodo","r":1},{"id":290,"n":"Glaviodo","r":3},{"id":291,"n":"Pikachu","r":1},{"id":292,"n":"Raichu","r":3},{"id":293,"n":"Magnemite","r":1},{"id":294,"n":"Magnéton","r":2},{"id":295,"n":"Wattouat","r":1},{"id":296,"n":"Lainergie","r":2},{"id":297,"n":"Dynamvolt","r":1},{"id":298,"n":"Helioptile","r":1},{"id":299,"n":"Iguolta","r":2},{"id":300,"n":"Voltoutou","r":1},{"id":301,"n":"Toxel","r":1},{"id":302,"n":"Têtampoule","r":1},{"id":303,"n":"Épine-de-Fer","r":2},{"id":304,"n":"Tarsal","r":1},{"id":305,"n":"Kirlia","r":2},{"id":306,"n":"Okéoké","r":3},{"id":307,"n":"Korillon","r":3},{"id":308,"n":"Mime Jr.","r":3},{"id":309,"n":"Meloetta","r":2},{"id":310,"n":"Nymphali","r":3},{"id":311,"n":"Trousselin","r":3},{"id":312,"n":"Fidough","r":1},{"id":313,"n":"Virovent","r":1},{"id":314,"n":"Virevorreur","r":3},{"id":315,"n":"Mordudor","r":1},{"id":316,"n":"Onix","r":1},{"id":317,"n":"Kraknoix","r":1},{"id":318,"n":"Riolu","r":1},{"id":319,"n":"Nodulithe","r":1},{"id":320,"n":"Géolithe","r":2},{"id":321,"n":"Crabicoque","r":1},{"id":322,"n":"Rockruff","r":1},{"id":323,"n":"Falinks","r":2},{"id":324,"n":"Tadmorv d'Alola","r":1},{"id":325,"n":"Grotadmorv d'Alola","r":3},{"id":326,"n":"Gastly","r":1},{"id":327,"n":"Spectrum","r":2},{"id":328,"n":"Darkrai","r":3},{"id":329,"n":"Zorua","r":1},{"id":330,"n":"Venalgue","r":1},{"id":331,"n":"Zarude","r":3},{"id":332,"n":"Bombirdier","r":3},{"id":333,"n":"Roaring Moon","r":3},{"id":334,"n":"Galarian Meowth","r":1},{"id":335,"n":"Galarian Perrserker","r":3},{"id":336,"n":"Terhal","r":1},{"id":337,"n":"Metang","r":2},{"id":338,"n":"Monorpale","r":1},{"id":339,"n":"Dimoclès","r":2},{"id":340,"n":"Exagide","r":3},{"id":341,"n":"Exagide","r":3},{"id":342,"n":"Meltan","r":1},{"id":343,"n":"Minidraco","r":1},{"id":344,"n":"Draco","r":2},{"id":345,"n":"Vibrava","r":2},{"id":346,"n":"Coupenotte","r":1},{"id":347,"n":"Incisache","r":2},{"id":348,"n":"Tranchodon","r":3},{"id":349,"n":"Draïeul","r":2},{"id":350,"n":"Rattata","r":1},{"id":351,"n":"Raticate","r":3},{"id":352,"n":"Meowth","r":1},{"id":353,"n":"Eevee","r":1},{"id":354,"n":"Skitty","r":1},{"id":355,"n":"Delcatty","r":3},{"id":356,"n":"Swablu","r":1},{"id":357,"n":"Laporeille","r":1},{"id":358,"n":"Goinfrex","r":3},{"id":359,"n":"Lillipup","r":1},{"id":360,"n":"Hisuian Zorua","r":1},{"id":361,"n":"Couaneton","r":1},{"id":362,"n":"Minisange","r":1},{"id":363,"n":"Bleuseille","r":2},{"id":364,"n":"Glace Veinarde","r":2},{"id":365,"n":"Générateur Électrique","r":2},{"id":366,"n":"Order Pad","r":2},{"id":367,"n":"Quick-Grow Extract","r":2},{"id":368,"n":"Souffleur de Terrain","r":2},{"id":369,"n":"Patch de Flamme","r":2},{"id":370,"n":"Deceptive Needle","r":2},{"id":371,"n":"Œuf Chance","r":2},{"id":372,"n":"Petit Ballon","r":2},{"id":373,"n":"Capsule Énergie Booster Temps Jadis","r":2},{"id":374,"n":"Capsule Énergie Booster Temps Futur","r":2},{"id":375,"n":"Poncho Protecteur","r":2},{"id":376,"n":"Barrière Métallique","r":2},{"id":377,"n":"Cape Élégante","r":2},{"id":378,"n":"Iris","r":2},{"id":379,"n":"Floriane","r":2},{"id":380,"n":"Diantha","r":2},{"id":381,"n":"Calem","r":2},{"id":382,"n":"Puppy-Loving Girl","r":2},{"id":383,"n":"Korrina","r":2},{"id":384,"n":"Lem","r":2},{"id":385,"n":"Serena","r":2},{"id":386,"n":"May","r":2},{"id":387,"n":"Skyla","r":2},{"id":388,"n":"Pepper","r":2},{"id":389,"n":"Marc","r":2},{"id":390,"n":"Wally","r":2},{"id":391,"n":"Copieuse","r":2},{"id":392,"n":"Atalante","r":2},{"id":393,"n":"Fragrant Forest","r":2},{"id":394,"n":"Arène de l'Antiquité","r":2},{"id":395,"n":"Soothing Shore","r":2},{"id":396,"n":"Bounded Field","r":2},{"id":397,"n":"Mesagoza","r":2},{"id":398,"n":"Training Area","r":2},{"id":399,"n":"Rainbow Cave","r":2},{"id":400,"n":"Sentier de Randonnée","r":2},{"id":401,"n":"Plaine de Départ","r":2},{"id":402,"n":"Peculiar Plaza","r":2}];
 
-const pool3=[[250,'Fragilady'],[257,'Teal Mask Ogerpon'],[267,'Victini'],[290,'Glaviodo'],[306,'Okéoké'],[307,'Korillon'],[310,'Nymphali'],[311,'Trousselin'],[314,'Virevorreur'],[325,"Grotadmorv d'Alola"],[328,'Darkrai'],[331,'Zarude'],[335,'Galarian Perrserker'],[340,'Exagide'],[348,'Tranchodon'],[355,'Delcatty'],[358,'Goinfrex']];
-const pool2=[[263,'Feurisson'],[265,'Galifeu'],[274,'Carabaffe'],[286,'Arrozard'],[296,'Lainergie'],[299,'Iguolta'],[303,'Épine-de-Fer'],[320,'Géolithe'],[339,'Dimoclès'],[344,'Draco'],[347,'Incisache'],[349,'Draïeul'],[363,'Bleuseille'],[364,'Glace Veinarde'],[365,'Générateur Électrique'],[366,'Order Pad'],[368,'Souffleur de Terrain'],[369,'Patch de Flamme'],[370,'Deceptive Needle'],[371,'Œuf Chance'],[372,'Petit Ballon'],[373,'Capsule Énergie Booster Temps Jadis'],[374,'Capsule Énergie Booster Temps Futur'],[375,'Poncho Protecteur'],[376,'Barrière Métallique'],[377,'Cape Élégante'],[378,'Iris'],[384,'Lem'],[387,'Skyla'],[388,'Pepper'],[391,'Copieuse'],[394,"Arène de l'Antiquité"],[399,'Rainbow Cave'],[401,'Plaine de Départ']];
-const pool1=[[242,'Insécateur'],[247,'Apitrini'],[249,'Chlorobule'],[251,'Fermite'],[253,'Matourgeon'],[255,'Olivado'],[264,'Poussifeu'],[271,'Charbambin'],[275,"Goupix d'Alola"],[277,'Magicarpe'],[283,'Grenousse'],[288,'Frigodo'],[289,'Cryodo'],[291,'Pikachu'],[295,'Wattouat'],[304,'Tarsal'],[317,'Kraknoix'],[330,'Venalgue'],[336,'Terhal'],[338,'Monorpale'],[343,'Minidraco'],[350,'Rattata'],[357,'Laporeille']];
-const unlockableCards=[
- {id:252,n:'Poussacha',r:1},{id:268,n:'Chochodile',r:1},{id:269,n:'Crocogril',r:1},{id:280,n:'Carvanha',r:1},{id:282,n:'Barpau',r:1},{id:297,n:'Dynamvolt',r:1},{id:300,n:'Voltoutou',r:1},{id:302,n:'Têtampoule',r:1},{id:313,n:'Virovent',r:1},{id:315,n:'Mordudor',r:1},{id:319,n:'Nodulithe',r:1},{id:321,n:'Crabicoque',r:1},{id:324,n:"Tadmorv d'Alola",r:1},{id:342,n:'Meltan',r:1},{id:346,n:'Coupenotte',r:1},{id:354,n:'Skitty',r:1},{id:361,n:'Couaneton',r:1},{id:362,n:'Minisange',r:1},
- {id:238,n:'Herbizarre',r:2},{id:259,n:'Reptincel',r:2},{id:279,n:'Flobio',r:2},{id:294,n:'Magnéton',r:2},{id:327,n:'Spectrum',r:2},{id:379,n:'Floriane',r:2},{id:385,n:'Serena',r:2},{id:389,n:'Marc',r:2},{id:392,n:'Atalante',r:2},{id:400,n:'Sentier de Randonnée',r:2},
- {id:272,n:'Hearthflame Mask Ogerpon',r:3}
-];
-const unlockableByRarity=r=>unlockableCards.filter(c=>c.r===r).map(c=>[c.id,c.n]);
+let collections={}, days=[], done={}, repl={}, obtained=[], activeAction=null;
+try{done=JSON.parse(localStorage.getItem(K_DONE)||'{}')||{}}catch(e){}
+try{repl=JSON.parse(localStorage.getItem(K_REPL)||'{}')||{}}catch(e){}
+try{obtained=JSON.parse(localStorage.getItem(K_GOT)||'[]')||[]}catch(e){}
 
-
-const d3=[[250,'Fragilady'],[257,'Teal Mask Ogerpon'],[267,'Victini'],[355,'Delcatty'],[306,'Okéoké'],[307,'Korillon'],[310,'Nymphali'],[311,'Trousselin'],[314,'Virevorreur'],[325,"Grotadmorv d'Alola"],[328,'Darkrai'],[331,'Zarude'],[335,'Galarian Perrserker'],[340,'Exagide'],[348,'Tranchodon']];
-const d2s=[[263,'Feurisson'],[265,'Galifeu'],[274,'Carabaffe'],[286,'Arrozard'],[296,'Lainergie'],[299,'Iguolta'],[303,'Épine-de-Fer'],[320,'Géolithe'],[339,'Dimoclès'],[344,'Draco'],[347,'Incisache'],[349,'Draïeul'],[363,'Bleuseille'],[364,'Glace Veinarde'],[365,'Générateur Électrique']];
-const d2b=[[401,'Plaine de Départ'],[399,'Rainbow Cave'],[394,"Arène de l'Antiquité"],[391,'Copieuse'],[388,'Pepper'],[387,'Skyla'],[384,'Lem'],[378,'Iris'],[377,'Cape Élégante'],[376,'Barrière Métallique'],[375,'Poncho Protecteur'],[374,'Capsule Énergie Booster Temps Futur'],[373,'Capsule Énergie Booster Temps Jadis'],[372,'Petit Ballon'],[371,'Œuf Chance']];
-
-const pad=n=>String(n).padStart(3,'0'), img=n=>`./B4b/${pad(n)}.webp`;
-const iso=i=>{let d=new Date(2026,9,3+i);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
-const label=i=>new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long'}).format(new Date(2026,9,3+i));
-const days=Array.from({length:15},(_,i)=>({date:iso(i),label:label(i),a:[
- {k:`${i}a`,g:`${i}a`,f:'BROOKLYN',t:'MAIN',v:'Partage',r:3,id:d3[i][0],n:d3[i][1]},
- {k:`${i}b`,g:`${i}s`,f:'BROOKLYN',t:'SECONDARY',v:'Partage',r:2,id:d2s[i][0],n:d2s[i][1]},
- {k:`${i}c`,g:`${i}c`,f:'BROOKLYN',t:'MAIN',v:'Trade',r:2,id:d2b[i][0],n:d2b[i][1]},
- {k:`${i}d`,g:`${i}s`,f:'SECONDARY',t:'MAIN',v:'Trade',r:2,id:d2s[i][0],n:d2s[i][1]}
-]}));
-
-let s={}, repl={}, obtained=[290], availability={};
-try{s=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
-try{repl=JSON.parse(localStorage.getItem(KR)||'{}')}catch(e){}
-try{obtained=[...new Set([290,...JSON.parse(localStorage.getItem(KO)||'[]')])]}catch(e){}
-try{availability=JSON.parse(localStorage.getItem(KA)||'{}')||{}}catch(e){availability={}}
-const save=()=>{localStorage.setItem(K,JSON.stringify(s));localStorage.setItem(KR,JSON.stringify(repl));localStorage.setItem(KO,JSON.stringify(obtained));localStorage.setItem(KA,JSON.stringify(availability))};
+const pad=n=>String(n).padStart(3,'0');
+const img=n=>`./B4b/${pad(n)}.webp`;
 const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const cardFor=a=>repl[a.k]||repl[a.g]||{id:a.id,n:a.n,r:a.r};
-const allActions=()=>days.flatMap(d=>d.a);
-const usedIds=()=>new Set(allActions().map(a=>cardFor(a).id));
-const basePoolForRarity=r=>r===3?pool3:r===2?pool2:pool1;
-const poolForRarity=r=>[...basePoolForRarity(r),...unlockableByRarity(r)];
-const unlockableIds=new Set(unlockableCards.map(c=>c.id));
+const meta=id=>CATALOG.find(c=>c.id===Number(id));
+const save=()=>{localStorage.setItem(K_DONE,JSON.stringify(done));localStorage.setItem(K_REPL,JSON.stringify(repl));localStorage.setItem(K_GOT,JSON.stringify(obtained))};
 
-// Les cartes des anciennes captures étaient déjà disponibles côté BROOKLYN.
-// Les 29 nouvelles cartes ne deviennent disponibles qu'après sélection du compte dans l'onglet Cartes disponibles.
-function accountsForCard(id){
- if(unlockableIds.has(id)) return Array.isArray(availability[id])?availability[id]:[];
- return ['BROOKLYN'];
+function parseCSV(text){
+  const lines=text.replace(/\r/g,'').trim().split('\n').filter(Boolean);
+  if(!lines.length)return [];
+  const head=lines[0].split(',').map(x=>x.trim());
+  return lines.slice(1).map(line=>{
+    const vals=line.split(',');
+    const o={};head.forEach((h,i)=>o[h]=(vals[i]??'').trim());
+    return o;
+  });
 }
-function isAvailableOn(id,account){return accountsForCard(id).includes(account)}
-function optionMode(a,id){
- if(a.f==='BROOKLYN') return isAvailableOn(id,'BROOKLYN')?'chain':null;
- if(a.f==='SECONDARY'){
-   if(isAvailableOn(id,'SECONDARY')) return 'direct';
-   if(isAvailableOn(id,'BROOKLYN')) return 'chain';
- }
- return null;
+function mapCollection(rows){
+  const m={};
+  rows.filter(r=>String(r.set_id).toUpperCase()===SET_ID).forEach(r=>m[Number(r.card_id)]=Number(r.quantity)||0);
+  return m;
 }
-function availableFromPool(pool,r,used,got,a){
- return pool.filter(([id])=>!used.has(id)&&!got.has(id)&&optionMode(a,id))
-   .map(([id,n])=>({id,n,r,mode:optionMode(a,id),accounts:accountsForCard(id)}));
+async function loadCollections(){
+  const out={};
+  for(const [account,path] of Object.entries(FILES)){
+    const res=await fetch(`${path}?v=${Date.now()}`,{cache:'no-store'});
+    if(!res.ok)throw new Error(`${path} → HTTP ${res.status}`);
+    out[account]=mapCollection(parseCSV(await res.text()));
+  }
+  return out;
+}
+function q(account,id){return collections[account]?.[id]||0}
+function mainMissing(c){return q('MAIN',c.id)<=0&&!obtained.includes(c.id)}
+function available(account,c){return q(account,c.id)>0}
+function candidates(account,rarities,used){
+  for(const r of rarities){
+    const list=CATALOG.filter(c=>c.r===r&&mainMissing(c)&&available(account,c)&&!used.has(c.id)).sort((a,b)=>a.id-b.id);
+    if(list.length)return list;
+  }
+  return [];
+}
+function dateFromISO(iso){const [y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d,12)}
+function addDaysISO(iso,n){const d=dateFromISO(iso);d.setDate(d.getDate()+n);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function labelISO(iso){return new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long'}).format(dateFromISO(iso))}
+function actionKey(date,slot,id){return `${date}-${slot}-${id}`}
+function makeAction(date,slot,group,from,to,verb,c){
+  return {k:actionKey(date,slot,c.id),g:`${date}-${group}`,slot,f:from,t:to,v:verb,r:c.r,id:c.id,n:c.n};
+}
+function generatePlan(){
+  const used=new Set();
+  const out=[];
+  for(let i=0;i<PLAN_DAYS;i++){
+    const date=addDaysISO(PLAN_START,i), a=[];
+    // 1) Partage BROOKLYN -> MAIN : priorité 3♦, puis 2♦, puis 1♦.
+    let c=candidates('BROOKLYN',[3,2,1],used)[0];
+    if(c){a.push(makeAction(date,'a','a','BROOKLYN','MAIN','Partage',c));used.add(c.id)}
+    // 2+4) Circuit BROOKLYN -> SECONDARY -> MAIN : priorité 2♦ puis 1♦.
+    c=candidates('BROOKLYN',[2,1],used)[0];
+    if(c){
+      a.push(makeAction(date,'b','s','BROOKLYN','SECONDARY','Partage',c));
+      a.push(makeAction(date,'d','s','SECONDARY','MAIN','Trade',c));
+      used.add(c.id);
+    }else{
+      // Si SECONDARY possède déjà une carte manquante, il peut la trader directement.
+      c=candidates('SECONDARY',[2,1],used)[0];
+      if(c){a.push(makeAction(date,'d','d','SECONDARY','MAIN','Trade',c));used.add(c.id)}
+    }
+    // 3) Trade BROOKLYN -> MAIN : priorité 2♦ puis 1♦.
+    c=candidates('BROOKLYN',[2,1],used)[0];
+    if(c){a.push(makeAction(date,'c','c','BROOKLYN','MAIN','Trade',c));used.add(c.id)}
+    out.push({date,label:labelISO(date),a});
+  }
+  return out;
+}
+function allActions(){return days.flatMap(d=>d.a)}
+function cardFor(a){return repl[a.k]||repl[a.g]||{id:a.id,n:a.n,r:a.r}}
+function usedIds(){return new Set(allActions().map(a=>cardFor(a).id))}
+function todayISO(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function targetDay(){const t=todayISO();return days.find(d=>d.date>=t)||days[days.length-1]}
+
+function actionHTML(a){
+  const c=cardFor(a), isDone=!!done[a.k], kind=a.v.toLowerCase()==='trade'?'trade':'share';
+  const changed=c.id!==a.id;
+  return `<article class="action ${kind} ${isDone?'done':''}">
+    <button class="act" data-k="${a.k}">
+      <div class="pic"><img src="${img(c.id)}" alt="${esc(c.n)}" loading="lazy"><div class="check"><b>✓</b></div></div>
+      <div><div class="route"><strong>${a.f}</strong> → <strong>${a.t}</strong></div><span class="verb">${a.v}</span>
+      <div class="name">${esc(c.n)}</div><div class="meta">#${pad(c.id)} · <span class="dia">${'♦'.repeat(c.r)}</span>${changed?' · remplacement':''}</div>
+      <div class="status"><span class="dot"></span>${isDone?'Fait':'À faire'}</div></div>
+    </button>
+    <button class="already" data-got="${a.k}" ${isDone?'disabled':''}>Je l’ai déjà obtenue autrement</button>
+  </article>`;
+}
+function renderCalendar(){
+  const t=todayISO();
+  cal.innerHTML=days.map((d,i)=>{
+    const n=d.a.filter(a=>done[a.k]).length, total=d.a.length;
+    const complete=total>0&&n===total;
+    return `<section class="day ${d.date===t?'today':''} ${complete?'complete':''}" id="day-${d.date}">
+      <div class="dh"><div class="date">Jour ${i+1} · ${d.label}${d.date===t?'<span class="todaytag">Aujourd’hui</span>':''}</div>
+      <div class="dp">${total===0?'Aucune action':complete?'✓ Terminé':`${n} / ${total}`}</div></div>
+      ${total?`<div class="actions">${d.a.map(actionHTML).join('')}</div>`:`<div class="emptyDay">Aucune carte transférable restante avec les collections actuelles.</div>`}
+    </section>`;
+  }).join('');
+  cal.querySelectorAll('.act').forEach(b=>b.onclick=()=>{done[b.dataset.k]=!done[b.dataset.k];save();renderCalendar()});
+  cal.querySelectorAll('.already').forEach(b=>b.onclick=e=>{e.stopPropagation();openReplace(b.dataset.got)});
+  const acts=allActions(), n=acts.filter(a=>done[a.k]).length;
+  gc.textContent=`${n} / ${acts.length}`;
+  gb.style.width=acts.length?`${n/acts.length*100}%`:'0%';
 }
 function replacementOptions(a){
- const used=usedIds(), got=new Set(obtained), currentRarity=cardFor(a).r||a.r;
- const rarities=currentRarity===3?[3,2,1]:currentRarity===2?[2,1]:[1];
- for(const r of rarities){
-   const opts=availableFromPool(poolForRarity(r),r,used,got,a);
-   if(opts.length)return {options:opts,rarity:r,fallback:r!==currentRarity,from:currentRarity};
- }
- return {options:[],rarity:null,fallback:false,from:currentRarity};
+  const current=cardFor(a), used=usedIds(), got=new Set(obtained);
+  used.delete(current.id);
+  const rarities=current.r===3?[3,2,1]:current.r===2?[2,1]:[1];
+  const isChain=a.g.endsWith('-s');
+  const source=isChain?'BROOKLYN':a.f;
+  for(const r of rarities){
+    const opts=CATALOG.filter(c=>c.r===r&&mainMissing(c)&&available(source,c)&&!used.has(c.id)&&!got.has(c.id)).sort((x,y)=>x.id-y.id);
+    if(opts.length)return {opts,r,source,fallback:r!==current.r};
+  }
+  return {opts:[],r:null,source,fallback:false};
 }
-
-function ah(a){let done=!!s[a.k], c=cardFor(a), changed=!!repl[a.g], rarity=c.r||a.r, kind=a.v.toLowerCase()==='trade'?'trade':'share';return `<article class="action ${kind} ${done?'done':''}"><button class="act" data-k="${a.k}"><div class="pic"><img src="${img(c.id)}" alt="${esc(c.n)}" loading="lazy"><div class="check"><b>✓</b></div></div><div><div class="route"><strong>${a.f}</strong> → <strong>${a.t}</strong></div><span class="verb">${a.v}</span><div class="name">${esc(c.n)}</div><div class="meta">#${pad(c.id)} · <span class="dia">${'♦'.repeat(rarity)}</span>${changed?' · remplacement':''}</div><div class="status"><span class="dot"></span>${done?'Fait':'À faire'}</div></div></button><button class="already" data-got="${a.k}" ${done?'disabled':''}>Je l’ai déjà obtenue autrement</button></article>`}
-
-
-function renderInventory(){
- const total=unlockableCards.length;
- const availableCount=unlockableCards.filter(c=>accountsForCard(c.id).length>0).length;
- inventoryStats.textContent=`${availableCount} / ${total} cartes désormais disponibles sur BROOKLYN ou SECONDARY`;
- inventoryList.innerHTML=[3,2,1].map(r=>{
-   const cards=unlockableCards.filter(c=>c.r===r);
-   return `<section class="raritySection"><div class="rarityTitle">${'♦'.repeat(r)} · ${cards.length} carte${cards.length>1?'s':''}</div><div class="inventoryGrid">${cards.map(c=>{
-     const acc=accountsForCard(c.id), hasB=acc.includes('BROOKLYN'), hasS=acc.includes('SECONDARY');
-     const status=acc.length?`Disponible : ${acc.join(' + ')}`:'Pas encore obtenue';
-     return `<article class="ownCard ${acc.length?'available':''}"><img src="${img(c.id)}" alt="${esc(c.n)}" loading="lazy"><div class="ownName">${esc(c.n)}</div><div class="ownMeta">#${pad(c.id)} · ${'♦'.repeat(c.r)}</div><div class="ownStatus">${status}</div><div class="accountBtns"><button class="acct ${hasB?'on':''}" data-own="${c.id}" data-account="BROOKLYN">BROOKLYN</button><button class="acct ${hasS?'on':''}" data-own="${c.id}" data-account="SECONDARY">SECONDARY</button></div></article>`
-   }).join('')}</div></section>`
- }).join('');
- inventoryList.querySelectorAll('.acct').forEach(b=>b.onclick=()=>{
-   const id=Number(b.dataset.own), account=b.dataset.account;
-   const set=new Set(Array.isArray(availability[id])?availability[id]:[]);
-   if(set.has(account))set.delete(account);else set.add(account);
-   if(set.size)availability[id]=[...set];else delete availability[id];
-   save();renderInventory();
- });
-}
-
-function showPage(page){
- const isCalendar=page==='calendar';
- calendarPage.classList.toggle('active',isCalendar);
- inventoryPage.classList.toggle('active',!isCalendar);
- tabCalendar.classList.toggle('active',isCalendar);
- tabInventory.classList.toggle('active',!isCalendar);
- if(!isCalendar)renderInventory();
-}
-tabCalendar.onclick=()=>showPage('calendar');
-tabInventory.onclick=()=>showPage('inventory');
-
-function todayISO(){let now=new Date();return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`}
-function targetDay(){const ti=todayISO();return days.find(d=>d.date>=ti)||days[days.length-1]}
-function render(){let ti=todayISO();document.getElementById('cal').innerHTML=days.map((d,i)=>{let n=d.a.filter(a=>s[a.k]).length;return `<section class="day ${d.date===ti?'today':''} ${n===4?'complete':''}" id="day-${d.date}"><div class="dh"><div class="date">Jour ${i+1} · ${d.label}${d.date===ti?'<span class="todaytag">Aujourd’hui</span>':''}</div><div class="dp">${n===4?'✓ Terminé':n+' / 4'}</div></div><div class="actions">${d.a.map(ah).join('')}</div></section>`}).join('');
- document.querySelectorAll('.act').forEach(b=>b.onclick=()=>{s[b.dataset.k]=!s[b.dataset.k];save();render()});
- document.querySelectorAll('.already').forEach(b=>b.onclick=e=>{e.stopPropagation();openReplace(b.dataset.got)});
- let done=allActions().filter(a=>s[a.k]).length;gc.textContent=`${done} / 60`;gb.style.width=`${done/60*100}%`}
-
-let activeAction=null;
 function openReplace(k){
- activeAction=allActions().find(a=>a.k===k);if(!activeAction)return;
- const c=cardFor(activeAction), result=replacementOptions(activeAction), opts=result.options;
- const fallbackText=result.fallback?` Plus aucune carte ${'♦'.repeat(result.from)} disponible pour ce circuit : je te propose donc les ${'♦'.repeat(result.rarity)}.`:` Choisis une autre carte ${'♦'.repeat(result.rarity||result.from)} disponible sur le bon compte.`;
- modalText.innerHTML=`Tu as déjà <strong>${esc(c.n)} #${pad(c.id)}</strong>.${fallbackText}`;
- choices.innerHTML=opts.length?opts.map(x=>{
-   const source=x.mode==='direct'?'Disponible sur SECONDARY':'Disponible sur BROOKLYN';
-   const route=x.mode==='direct'?'trade direct':'via partage vers SECONDARY';
-   return `<button class="choice" data-id="${x.id}" data-r="${x.r}" data-mode="${x.mode}"><img src="${img(x.id)}" alt="${esc(x.n)}"><div class="choicename">${esc(x.n)}</div><div class="choicemeta">#${pad(x.id)} · ${'♦'.repeat(x.r)}${result.fallback?' · rareté inférieure':''}</div><div class="choiceSource">${source}${activeAction.f==='SECONDARY'?' · '+route:''}</div></button>`
- }).join(''):`<div class="empty">Aucune carte de remplacement disponible sur le compte nécessaire, même en descendant de rareté.</div>`;
- choices.querySelectorAll('.choice').forEach(b=>b.onclick=()=>chooseReplacement(Number(b.dataset.id),Number(b.dataset.r),b.dataset.mode));
- modal.classList.add('open')
+  activeAction=allActions().find(a=>a.k===k);if(!activeAction)return;
+  const current=cardFor(activeAction), result=replacementOptions(activeAction);
+  modalText.innerHTML=`Tu as déjà <strong>${esc(current.n)} #${pad(current.id)}</strong>. ${result.opts.length?`Choisis une carte disponible sur <strong>${result.source}</strong>${result.fallback?' dans la rareté inférieure disponible':''}.`:'Aucune autre carte compatible n’est disponible dans les collections chargées.'}`;
+  choices.innerHTML=result.opts.length?result.opts.map(c=>`<button class="choice" data-id="${c.id}">
+    <img src="${img(c.id)}" alt="${esc(c.n)}"><div class="choicename">${esc(c.n)}</div>
+    <div class="choicemeta">#${pad(c.id)} · ${'♦'.repeat(c.r)}</div><div class="choiceSource">Disponible sur ${result.source}</div></button>`).join(''):`<div class="emptyDay">Aucun remplacement disponible.</div>`;
+  choices.querySelectorAll('.choice').forEach(b=>b.onclick=()=>chooseReplacement(Number(b.dataset.id)));
+  modal.classList.add('open');
+}
+function chooseReplacement(id){
+  if(!activeAction)return;
+  const c=meta(id);if(!c)return;
+  const old=cardFor(activeAction);obtained=[...new Set([...obtained,old.id])];
+  if(activeAction.g.endsWith('-s')){
+    repl[activeAction.g]={id:c.id,n:c.n,r:c.r};
+    allActions().filter(a=>a.g===activeAction.g).forEach(a=>done[a.k]=false);
+  }else{
+    repl[activeAction.k]={id:c.id,n:c.n,r:c.r};
+    done[activeAction.k]=false;
+  }
+  save();closeReplace();renderCalendar();
 }
 function closeReplace(){modal.classList.remove('open');activeAction=null}
-function chooseReplacement(id,rarity,mode){
- if(!activeAction)return;
- const current=cardFor(activeAction), pool=poolForRarity(rarity), found=pool.find(x=>x[0]===id);if(!found)return;
- obtained=[...new Set([...obtained,current.id])];
- const replacement={id:found[0],n:found[1],r:rarity};
- if(activeAction.g.endsWith('s')&&mode==='chain'){
-   // Carte disponible sur BROOKLYN : on conserve le circuit en deux étapes.
-   delete repl[`${activeAction.g.slice(0,-1)}b`];
-   delete repl[`${activeAction.g.slice(0,-1)}d`];
-   repl[activeAction.g]=replacement;
-   allActions().filter(a=>a.g===activeAction.g).forEach(a=>{s[a.k]=false});
- }else{
-   // Carte déjà disponible sur le compte source : remplacement de cette action uniquement.
-   repl[activeAction.k]=replacement;
-   s[activeAction.k]=false;
- }
- save();closeReplace();render()
-}
 
-closeModal.onclick=closeReplace;modal.onclick=e=>{if(e.target===modal)closeReplace()};
-reset.onclick=()=>{if(confirm('Réinitialiser validations ET remplacements ?')){s={};repl={};obtained=[290];localStorage.removeItem(K);localStorage.removeItem(KR);localStorage.removeItem(KO);render()}};
-render();
-// À l'ouverture : aujourd'hui, ou à défaut la prochaine date du planning.
-requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  const target=targetDay();
-  const el=document.getElementById(`day-${target.date}`);
-  const cal=document.getElementById('cal');
-  if(el&&cal){
-    // Le calendrier est son propre viewport sur iPhone : on place exactement
-    // la journée cible au début du viewport, sans laisser apparaître la suivante.
-    cal.scrollTo({top:el.offsetTop-cal.offsetTop,behavior:'auto'});
+function renderStatus(){
+  const missing=CATALOG.filter(mainMissing);
+  const transf=missing.filter(c=>available('BROOKLYN',c)||available('SECONDARY',c));
+  const nowhere=missing.filter(c=>!available('BROOKLYN',c)&&!available('SECONDARY',c));
+  const b=missing.filter(c=>available('BROOKLYN',c)).length;
+  const s=missing.filter(c=>available('SECONDARY',c)).length;
+  statusSummary.innerHTML=`<h2>État calculé depuis les CSV</h2>
+    <p><span class="fileok">✓</span> ${FILES.MAIN}<br><span class="fileok">✓</span> ${FILES.SECONDARY}<br><span class="fileok">✓</span> ${FILES.BROOKLYN}</p>
+    <div class="statGrid"><div class="stat"><b>${missing.length}</b><span>manquent à MAIN</span></div><div class="stat"><b>${transf.length}</b><span>transférables</span></div><div class="stat"><b>${nowhere.length}</b><span>absentes partout</span></div></div>`;
+  statusList.innerHTML=[3,2,1].map(r=>{
+    const list=missing.filter(c=>c.r===r);
+    if(!list.length)return '';
+    return `<section class="raritySection"><div class="rarityTitle">${'♦'.repeat(r)} · ${list.length} manquante${list.length>1?'s':''}</div><div class="inventoryGrid">${list.map(c=>{
+      const hb=available('BROOKLYN',c), hs=available('SECONDARY',c);
+      return `<article class="ownCard ${hb||hs?'available':'none'}"><img src="${img(c.id)}" alt="${esc(c.n)}" loading="lazy"><div class="ownName">${esc(c.n)}</div><div class="ownMeta">#${pad(c.id)} · ${'♦'.repeat(c.r)}</div>
+      ${hb?'<span class="badge b">BROOKLYN</span>':''}${hs?'<span class="badge s">SECONDARY</span>':''}${!hb&&!hs?'<span class="badge none">ABSENTE</span>':''}</article>`;
+    }).join('')}</div></section>`;
+  }).join('');
+}
+function showPage(page){
+  const isCal=page==='calendar';
+  calendarPage.classList.toggle('active',isCal);statusPage.classList.toggle('active',!isCal);
+  tabCalendar.classList.toggle('active',isCal);tabStatus.classList.toggle('active',!isCal);
+  if(!isCal)renderStatus();
+}
+function scrollToTarget(){
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const target=targetDay(), el=target&&document.getElementById(`day-${target.date}`);
+    if(el&&cal)cal.scrollTo({top:el.offsetTop-cal.offsetTop,behavior:'auto'});
+  }));
+}
+async function init(){
+  try{
+    collections=await loadCollections();
+    days=generatePlan();
+    subtitle.textContent=`${labelISO(PLAN_START)} → ${labelISO(addDaysISO(PLAN_START,PLAN_DAYS-1))} · calculé depuis les 3 CSV`;
+    renderCalendar();renderStatus();scrollToTarget();
+  }catch(e){
+    calendarPage.innerHTML=`<div class="error"><strong>Impossible de charger les collections.</strong><br><br>${esc(e.message)}<br><br>Vérifie que les trois fichiers sont dans <strong>collection/</strong> à côté de index.html :<br>collection_main.csv<br>collection_secondary.csv<br>collection_brooklyn.csv</div>`;
+    statusPage.innerHTML=calendarPage.innerHTML;
+    subtitle.textContent='Erreur de chargement des CSV';
+    console.error(e);
   }
-}));
-</script></body></html>
+}
+tabCalendar.onclick=()=>showPage('calendar');
+tabStatus.onclick=()=>showPage('status');
+closeModal.onclick=closeReplace;modal.onclick=e=>{if(e.target===modal)closeReplace()};
+reloadBtn.onclick=()=>location.reload();
+resetBtn.onclick=()=>{if(confirm('Réinitialiser les validations et remplacements locaux ?')){done={};repl={};obtained=[];localStorage.removeItem(K_DONE);localStorage.removeItem(K_REPL);localStorage.removeItem(K_GOT);days=generatePlan();save();renderCalendar();scrollToTarget()}};
+init();
+</script>
+</body></html>
